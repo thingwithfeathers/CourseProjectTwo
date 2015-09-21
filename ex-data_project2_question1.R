@@ -1,0 +1,6 @@
+NEI <- readRDS(~."summarySCC_PM25.rds")
+SCC <- readRDS(~."Source_Classification_Code.rds")
+annualemissions<-aggregate(Emissions ~ year, data=NEI, sum)
+boxplot(Emissions/10^6 ~ year, annualemissions, xlab = "Year", ylab = "Annual Emissions, in Millions of Tons"), main = "PM2.5 Emissions in U.S. from 1999-2008")
+dev.copy(png, file = "/Users/humbertsanders/Desktop/Coursera/Repo/ex-data_project2/plot1.R")
+dev.off()
